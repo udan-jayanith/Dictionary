@@ -1,0 +1,27 @@
+{
+     "manifest_version": 3,
+     "name": "Dictionary",
+     "version": "1.0",
+     "permissions": [
+       "activeTab",
+       "scripting",
+       "https://www.google.com/search*"
+     ],
+     "action": {
+       "default_icon": "images/icon.png"
+     },
+     "content_scripts": [
+       {
+         "matches": ["https://www.google.com/search*"],
+         "js": ["content.js"]
+       }
+     ],
+     "icons": {
+      "16": "images/icon.png",
+      "32": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    }
+}
+   
+   
