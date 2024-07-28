@@ -44,7 +44,7 @@ function render(array, word){
      })
 }
 
-const GSR = document.querySelector('.ouUsKb')
+const GSR = document.querySelector('.WE0UJf')
 if(GSR !== null) {
      const word = document.querySelector('.JgzqYd span')
      const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
@@ -53,6 +53,8 @@ if(GSR !== null) {
      .then(response => {
           return response.json()
      }).then(json => {
+
+          //if(json.title == 'No Definitions Found')
 
           let array = []
 
@@ -64,7 +66,7 @@ if(GSR !== null) {
                }
           }
 
-          GSR.innerHTML = 
+          GSR.innerHTML += 
           `
           <div class="word-definition">
                <h2 class="word-title">Word: Null</h2>
@@ -106,6 +108,7 @@ const styles =
      padding: 20px;
      margin: 10px;
      background-color: #f9f9f9;
+     max-width: 50%;
    }
    
    .word-definition h2 {
