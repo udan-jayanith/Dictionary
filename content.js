@@ -46,15 +46,32 @@ function render(array, word){
 
 const GSR = document.querySelector('.WE0UJf')
 if(GSR !== null) {
-     const word = document.querySelector('.JgzqYd span')
      const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+
+     let word = document.querySelector('.JgzqYd span')
+     let finalWord = ' '
+     if(word == null || word == undefined || !word){
+          word = document.getElementById('APjFqb')
+          let array = word.value.toLowerCase.split(' ')
+
+          for(let i = 0; i<array.length; i++){
+               if(array[i]=='meaning' &&
+                  array[i+1]=='of' ||
+                  array[i]=='definition' &&
+                  array[i+1]=='of'
+                 ) finalWord = array[i+2]
+               else if(array.length == 2 &&
+                  array[1]=='meaning'||
+                  array[1]=='definition'
+               ) finalWord = array[0]
+          }
+
+     }else finalWord = word.innerText
      
-     fetch(url + word.innerText)
+     fetch(url + finalWord)
      .then(response => {
           return response.json()
      }).then(json => {
-
-          //if(json.title == 'No Definitions Found')
 
           let array = []
 
@@ -95,7 +112,7 @@ if(GSR !== null) {
 
           render(array, word)   
 
-     })
+     }).catch(err =>{ console.log(err)})
 
 
 }
