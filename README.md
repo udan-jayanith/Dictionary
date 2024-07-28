@@ -10,8 +10,7 @@ Welcome to the Chrome Dictionary Extension! This extension uses the Free Diction
 
 ## Features
 
-- **Instant Definitions:** Get word definitions quickly without leaving your current tab.
-- **Simple Installation:** Easy setup process for users to start using the extension right away.
+- **Instant Definitions:** Get the word definitions quickly.
 - **User-Friendly Interface:** Clean and intuitive design for a seamless experience.
 
 ## Installation
