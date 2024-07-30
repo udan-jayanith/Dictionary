@@ -1,4 +1,5 @@
 function render(array, word){
+
      function setValues(i){
           const information = array[i]
 
@@ -12,7 +13,7 @@ function render(array, word){
           definition.innerHTML = 'Definition: '+ information.definitions[0].definition
 
           const wordTitle = document.querySelector('.word-title')
-          wordTitle.innerHTML = `Word: ${word.innerText}`
+          wordTitle.innerHTML = `Word: ${word}`
 
      }
 
@@ -50,9 +51,10 @@ if(GSR !== null) {
 
      let word = document.querySelector('.JgzqYd span')
      let finalWord = ' '
-     if(word == null || word == undefined || !word){
+     
+     if(!word){
           word = document.getElementById('APjFqb')
-          let array = word.value.toLowerCase.split(' ')
+          let array = word.value.toLowerCase().split(' ')
 
           for(let i = 0; i<array.length; i++){
                if(array[i]=='meaning' &&
@@ -64,6 +66,8 @@ if(GSR !== null) {
                   array[1]=='meaning'||
                   array[1]=='definition'
                ) finalWord = array[0]
+               else finalWord = ' '
+               
           }
 
      }else finalWord = word.innerText
@@ -82,6 +86,12 @@ if(GSR !== null) {
                     array.push(respons[ind])
                }
           }
+
+          function audio(){
+               if(!json[0].phonetics[0]) return '#'
+               else return json[0].phonetics[0].audio
+          }
+
 
           GSR.innerHTML += 
           `
@@ -104,13 +114,13 @@ if(GSR !== null) {
                <p class="definition">Definition: Null</p>
 
                <audio controls class="audioControl">
-                    <source src="${json[0].phonetics[0].audio}" class = "audioPlayer">
+                    <source src="${audio()}" class = "audioPlayer">
                </audio>
 
           </div>
           `
 
-          render(array, word)   
+          render(array, finalWord)   
 
      }).catch(err =>{ console.log(err)})
 

@@ -1,0 +1,8 @@
+{
+     "version": "1.3",
+     "changeLog": [
+          "expand the range of words supported",
+          "Bug fix",
+          "Fix not showing Google Dictionary when using this extension"
+     ]
+}
